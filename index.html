@@ -1,1 +1,302 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S&P 500 Investigative Risk Monitor</title>
+<style>
+:root {
+  --bg:#0b1220;
+  --panel:#17243a;
+  --border:#31415a;
+  --text:#eef4ff;
+  --muted:#a8bad3;
+  --blue:#65a7ff;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+header {
+  background:#13213a;
+  padding:28px 20px;
+  border-bottom:1px solid var(--border);
+}
+header h1 { margin:8px 0; font-size:26px; }
+header p { color:var(--muted); }
+main { max-width:1100px; margin:auto; padding:20px; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:14px;
+}
+.label { font-size:13px; color:var(--muted); }
+.value { font-size:26px; font-weight:bold; margin-top:8px; }
+h2 { margin-top:30px; font-size:20px; }
+input {
+  width:100%;
+  padding:13px;
+  background:#101c30;
+  border:1px solid var(--border);
+  border-radius:9px;
+  color:white;
+  font-size:16px;
+}
+button {
+  background:#337de4;
+  color:white;
+  border:0;
+  padding:12px 18px;
+  border-radius:9px;
+  cursor:pointer;
+}
+a { color:var(--blue); }
+.row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.badge {
+  background:#34435b;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+.small { color:var(--muted); font-size:13px; line-height:1.5; }
+.empty {
+  padding:28px;
+  text-align:center;
+  color:var(--muted);
+}
+footer {
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="small">INVESTIGATIVE EQUITY INTELLIGENCE</div>
+  <h1>S&P 500 Risk Monitor</h1>
+  <p>Executive risk • Regulatory exposure • Financial anomalies</p>
+  <span class="badge">Research Dashboard</span>
+</header>
+
+<main>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">Research Universe</div>
+    <div class="value">S&P 500</div>
+  </div>
+  <div class="card">
+    <div class="label">Priority Watchlist</div>
+    <div class="value">Top 10</div>
+  </div>
+  <div class="card">
+    <div class="label">Monitoring Status</div>
+    <div class="value" id="status">Pending</div>
+  </div>
+</div>
+
+<h2>Risk Forecasts</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">30-Day Adverse Event Probability</div>
+    <div class="value">Pending</div>
+    <p class="small">
+      Likelihood of a material adverse corporate event becoming public.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="label">30-Day Stock Decline &gt;12%</div>
+    <div class="value">Pending</div>
+    <p class="small">
+      Probability requires a calibrated forecasting model.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="label">90-Day Stock Decline &gt;12%</div>
+    <div class="value">Pending</div>
+    <p class="small">
+      Forecast based on historical market and event data.
+    </p>
+  </div>
+</div>
+
+<h2>Top 10 Investigative Watchlist</h2>
+
+<input
+  id="search"
+  placeholder="Search company or ticker"
+  aria-label="Search companies"
+>
+
+<div id="results" class="empty">
+  No verified investigations loaded yet.
+  Connect the daily scanner to populate this report.
+</div>
+
+<h2>Research Sources</h2>
+
+<div class="card">
+  <p>
+    <a href="https://www.sec.gov/edgar/search/" target="_blank">
+      SEC EDGAR Filings
+    </a>
+  </p>
+  <p>
+    <a href="https://www.sec.gov/litigation" target="_blank">
+      SEC Enforcement
+    </a>
+  </p>
+  <p>
+    <a href="https://www.justice.gov/news" target="_blank">
+      Department of Justice News
+    </a>
+  </p>
+</div>
+
+<h2>Daily Monitoring</h2>
+
+<div class="card">
+  <p id="updated" class="small">
+    Automated research has not been activated.
+  </p>
+  <button onclick="loadReport()">Refresh Report</button>
+</div>
+
+<p class="small">
+  This website is for investigative financial research.
+  Allegations are not established facts.
+  Forecast probabilities should not be published until
+  they have been historically validated.
+</p>
+
+</main>
+
+<footer>
+  S&P 500 Investigative Risk Monitor
+</footer>
+
+<script>
+let companies = [];
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  }[c]));
+}
+
+function renderCompanies() {
+  const query = document.getElementById("search")
+    .value.toLowerCase();
+
+  const filtered = companies.filter(c =>
+    String(c.ticker + " " + c.company)
+      .toLowerCase().includes(query)
+  ).slice(0,10);
+
+  const container = document.getElementById("results");
+
+  if (!filtered.length) {
+    container.innerHTML =
+      '<div class="empty">No matching investigations available.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(c => `
+    <div class="card">
+      <div class="row">
+        <strong>${escapeHTML(c.ticker)}</strong>
+        <span class="badge">
+          ${escapeHTML(c.risk_level || "Review")}
+        </span>
+      </div>
+
+      <p>${escapeHTML(c.company)}</p>
+      <p class="small">
+        ${escapeHTML(c.summary || "Investigation pending")}
+      </p>
+
+      <div class="small">
+        30-Day Event:
+        ${escapeHTML(c.event_30d ?? "Pending")}
+        <br>
+        30-Day Decline:
+        ${escapeHTML(c.drop_30d ?? "Pending")}
+        <br>
+        90-Day Decline:
+        ${escapeHTML(c.drop_90d ?? "Pending")}
+      </div>
+    </div>
+  `).join("");
+}
+
+document.getElementById("search")
+  .addEventListener("input", renderCompanies);
+
+async function loadReport() {
+  try {
+    const response = await fetch(
+      "./report.json?t=" + Date.now(),
+      { cache:"no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Report unavailable");
+    }
+
+    const data = await response.json();
+
+    companies = Array.isArray(data.companies)
+      ? data.companies : [];
+
+    document.getElementById("status").textContent =
+      "Connected";
+
+    document.getElementById("updated").textContent =
+      "Last updated: " +
+      (data.updated_at || "Unknown");
+
+    renderCompanies();
+
+  } catch (error) {
+    document.getElementById("status").textContent =
+      "Not Connected";
+
+    document.getElementById("updated").textContent =
+      "Daily scanner has not published a report yet.";
+
+    renderCompanies();
+  }
+}
+
+loadReport();
+</script>
+
+</body>
+</html>
+
