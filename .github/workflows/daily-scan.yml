@@ -1,1 +1,46 @@
 
+name: Daily S&P 500 SEC Scan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 12 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-sec-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run investigative scanner
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python scanner.py
+
+      - name: Commit updated report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add report.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update daily S&P 500 investigative report"
+            git push
+          fi
+
