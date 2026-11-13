@@ -3,261 +3,274 @@ import csv
 import io
 import json
 import os
+import re
 import time
 import urllib.request
+import urllib.error
 from datetime import datetime, timedelta, timezone
+from html import unescape
 
-# S&P 500 Investigative Risk Monitor
-# Uses Python's built-in libraries only.
-# No local installation or paid API required.
+# S&P 500 Investigative Risk Monitor - Version 3
+# Standard Python library only.
 
-USER_AGENT = os.environ.get("SEC_USER_AGENT", "").strip()
+AGENT = os.getenv("SEC_USER_AGENT", "").strip()
 
-if not USER_AGENT or "example.com" in USER_AGENT:
+if not AGENT or "@" not in AGENT or "example.com" in AGENT:
     raise SystemExit(
-        "Set SEC_USER_AGENT to an application name "
-        "and your real contact email."
+        "Set SEC_USER_AGENT to your app name and real contact email."
     )
 
 HEADERS = {
-    "User-Agent": USER_AGENT,
-    "Accept-Encoding": "identity",
-    "Accept": "application/json, text/csv, */*"
+    "User-Agent": AGENT,
+    "Accept-Encoding": "identity"
 }
 
-INDEX_URL = (
-    "https://raw.githubusercontent.com/"
-    "datasets/s-and-p-500-companies/"
-    "main/data/constituents.csv"
+CONSTITUENTS = (
+    "https://raw.githubusercontent.com/datasets/"
+    "s-and-p-500-companies/main/data/constituents.csv"
 )
 
-SEC_TICKERS = (
-    "https://www.sec.gov/files/company_tickers.json"
-)
+TICKERS = "https://www.sec.gov/files/company_tickers.json"
 
-SEC_SUBMISSIONS = (
-    "https://data.sec.gov/submissions/CIK{:010d}.json"
-)
+LOOKBACK = 120
 
-LOOKBACK_DAYS = 180
-MAX_COMPANIES = 500
-REQUEST_DELAY = 0.15
+# Filing item weights are investigative priorities,
+# not probabilities of a stock-price decline.
 
-# These are investigative screening weights,
-# not stock-price probabilities.
-EVENT_RULES = {
-    "4.02": (
-        45,
-        "Non-reliance on previously issued financial statements"
-    ),
-    "4.01": (
-        25,
-        "Changes in certifying accountant"
-    ),
-    "5.02": (
-        18,
-        "Director or senior executive change"
-    ),
-    "1.01": (
-        8,
-        "Material definitive agreement"
-    ),
-    "1.02": (
-        12,
-        "Termination of material agreement"
-    ),
-    "2.02": (
-        5,
-        "Results of operations disclosure"
-    ),
-    "2.05": (
-        20,
-        "Exit or disposal costs"
-    ),
-    "2.06": (
-        25,
-        "Material impairment disclosure"
-    ),
-    "3.01": (
-        35,
-        "Listing or continued listing notice"
-    ),
-    "5.03": (
-        6,
-        "Changes to charter or bylaws"
-    ),
-    "7.01": (
-        3,
-        "Regulation FD disclosure"
-    ),
-    "8.01": (
-        4,
-        "Other events"
-    )
+RULES = {
+    "4.02": (70, "Financial statements should no longer be relied upon"),
+    "4.01": (24, "Change in certifying accountant"),
+    "2.06": (30, "Material impairment"),
+    "2.05": (18, "Restructuring or exit costs"),
+    "3.01": (45, "Exchange listing compliance notice"),
+    "1.02": (16, "Termination of a material agreement"),
+    "5.02": (10, "Director or executive change")
 }
 
+KEYWORDS = [
+    ("material weakness", 20, "Internal control material weakness"),
+    ("substantial doubt", 35, "Going-concern uncertainty"),
+    ("restatement", 20, "Restatement reference"),
+    ("government investigation", 18, "Government investigation reference"),
+    ("export control", 12, "Export-control reference"),
+    ("sanction", 8, "Sanctions reference"),
+    ("related party transaction", 10, "Related-party transaction reference"),
+    ("disagreement with", 10, "Disagreement reference"),
+    ("resign", 4, "Resignation reference")
+]
 
-def fetch(url):
-    request = urllib.request.Request(
-        url,
-        headers=HEADERS
+
+def get(url, attempts=3):
+    for attempt in range(attempts):
+        try:
+            request = urllib.request.Request(url, headers=HEADERS)
+
+            with urllib.request.urlopen(request, timeout=35) as response:
+                return response.read()
+
+        except (
+            urllib.error.HTTPError,
+            urllib.error.URLError,
+            TimeoutError
+        ):
+            if attempt == attempts - 1:
+                raise
+
+            time.sleep(2 * (attempt + 1))
+
+
+def text_from_html(data):
+    text = data.decode("utf-8", "replace")
+
+    text = re.sub(
+        r"(?is)<(script|style|ix:header)\b[^>]*>.*?</\1>",
+        " ",
+        text
     )
-    with urllib.request.urlopen(
-        request,
-        timeout=35
-    ) as response:
-        return response.read()
+
+    text = re.sub(r"(?s)<[^>]+>", " ", text)
+
+    return re.sub(
+        r"\s+",
+        " ",
+        unescape(text)
+    ).strip()
 
 
-def load_companies():
-    raw = fetch(INDEX_URL).decode("utf-8-sig")
+def companies():
+    raw = get(CONSTITUENTS).decode("utf-8-sig")
     rows = list(csv.DictReader(io.StringIO(raw)))
 
-    companies = []
+    result = []
+
     for row in rows:
         ticker = (
             row.get("Symbol")
             or row.get("Ticker")
-            or row.get("ticker")
             or ""
-        ).strip().upper().replace(".", "-")
+        ).upper().replace(".", "-").strip()
 
         name = (
             row.get("Security")
             or row.get("Name")
-            or row.get("company")
             or ticker
         ).strip()
 
         if ticker:
-            companies.append({
+            result.append({
                 "ticker": ticker,
                 "company": name
             })
 
-    if len(companies) < 450:
-        raise RuntimeError(
-            "S&P 500 constituent source is incomplete."
-        )
+    if len(result) < 450:
+        raise RuntimeError("S&P 500 constituent list incomplete")
 
-    return companies[:MAX_COMPANIES]
+    return result
 
 
-def load_sec_tickers():
-    data = json.loads(fetch(SEC_TICKERS))
-    mapping = {}
+def sec_map():
+    data = json.loads(get(TICKERS))
 
-    for record in data.values():
-        ticker = record["ticker"].upper().replace(".", "-")
-        mapping[ticker] = int(record["cik_str"])
+    return {
+        record["ticker"].upper().replace(".", "-"):
+        int(record["cik_str"])
+        for record in data.values()
+    }
 
-    return mapping
 
+def investigate(company, cik, cutoff):
+    url = (
+        f"https://data.sec.gov/submissions/"
+        f"CIK{cik:010d}.json"
+    )
 
-def analyze_company(company, cik, cutoff):
-    url = SEC_SUBMISSIONS.format(cik)
-    data = json.loads(fetch(url))
+    data = json.loads(get(url))
 
     recent = data.get("filings", {}).get("recent", {})
+    findings = []
     forms = recent.get("form", [])
-    dates = recent.get("filingDate", [])
-    accessions = recent.get("accessionNumber", [])
-    documents = recent.get("primaryDocument", [])
-    items = recent.get("items", [])
-
-    evidence = []
-    score = 0
 
     for i, form in enumerate(forms):
-        if i >= len(dates):
+        if i >= len(recent.get("filingDate", [])):
             break
 
-        filing_date = dates[i]
+        date = recent["filingDate"][i]
 
-        if filing_date < cutoff:
+        if date < cutoff:
             continue
 
-        if form not in ("8-K", "8-K/A", "NT 10-K", "NT 10-Q"):
+        if form not in (
+            "8-K", "8-K/A", "NT 10-K", "NT 10-Q"
+        ):
+            continue
+
+        item_string = (
+            recent.get("items", [])[i]
+            if i < len(recent.get("items", []))
+            else ""
+        ) or ""
+
+        matched = [
+            (item, *RULES[item])
+            for item in (
+                value.strip()
+                for value in item_string.split(",")
+            )
+            if item in RULES
+        ]
+
+        late = form.startswith("NT ")
+
+        if not matched and not late:
             continue
 
         accession = (
-            accessions[i].replace("-", "")
-            if i < len(accessions) else ""
+            recent["accessionNumber"][i]
+            .replace("-", "")
         )
-        document = documents[i] if i < len(documents) else ""
 
-        if not accession or not document:
-            continue
+        document = recent["primaryDocument"][i]
 
         filing_url = (
             f"https://www.sec.gov/Archives/edgar/data/"
             f"{cik}/{accession}/{document}"
         )
 
-        filing_items = (
-            items[i] if i < len(items) else ""
-        ) or ""
+        base = max(
+            [item[1] for item in matched]
+            + ([30] if late else [0])
+        )
 
-        filing_score = 0
-        descriptions = []
+        reasons = [item[2] for item in matched]
 
-        if form in ("NT 10-K", "NT 10-Q"):
-            filing_score = 25
-            descriptions.append(
-                "Late periodic filing notification"
-            )
+        if late:
+            reasons.append("Late periodic filing notice")
 
-        if form.startswith("8-K"):
-            for item, (weight, description) in EVENT_RULES.items():
-                # Match complete item numbers, not substrings.
-                item_list = [
-                    x.strip()
-                    for x in filing_items.split(",")
-                ]
-                if item in item_list:
-                    filing_score += weight
-                    descriptions.append(description)
+        text_signals = []
 
-        if not descriptions:
-            continue
+        if base >= 18:
+            try:
+                body = text_from_html(
+                    get(filing_url)
+                )[:400000].lower()
 
-        # Cap individual filing impact.
-        filing_score = min(filing_score, 65)
-        score += filing_score
+                for phrase, weight, label in KEYWORDS:
+                    if phrase in body:
+                        text_signals.append(label)
 
-        evidence.append({
-            "date": filing_date,
+                time.sleep(0.12)
+
+            except Exception:
+                pass
+
+        # Keyword references are investigative leads,
+        # not proof of wrongdoing.
+        bonus = min(12, 3 * len(text_signals))
+
+        findings.append({
+            "date": date,
             "form": form,
-            "items": filing_items,
-            "description": "; ".join(descriptions),
-            "score": filing_score,
+            "items": item_string,
+            "description": "; ".join(reasons),
+            "text_signals": text_signals,
+            "score": min(80, base + bonus),
             "url": filing_url
         })
 
-    evidence.sort(
+        if len(findings) >= 12:
+            break
+
+    findings.sort(
         key=lambda x: (x["score"], x["date"]),
         reverse=True
     )
 
-    # Screening score is capped at 100.
-    # It is NOT a probability or allegation.
-    score = min(score, 100)
+    # Reduce the influence of repeated filings.
+    values = [f["score"] for f in findings]
 
-    if score >= 70:
+    score = min(
+        100,
+        round(
+            (values[0] if values else 0)
+            + sum(v * 0.12 for v in values[1:4])
+        )
+    )
+
+    if score >= 65:
         level = "High review priority"
-    elif score >= 35:
+    elif score >= 30:
         level = "Elevated review priority"
     else:
         level = "Routine review"
 
-    if evidence:
+    if findings:
         summary = (
-            "SEC filing screening identified: "
-            + evidence[0]["description"]
-            + ". Review the filing before drawing conclusions."
+            "Review disclosed "
+            + findings[0]["description"].lower()
+            + ". This is not evidence of wrongdoing."
         )
     else:
-        summary = "No qualifying recent filing signals detected."
+        summary = "No qualifying filing signals detected."
 
     return {
         "ticker": company["ticker"],
@@ -269,52 +282,61 @@ def analyze_company(company, cik, cutoff):
         "event_30d": None,
         "drop_30d": None,
         "drop_90d": None,
-        "evidence": evidence[:12]
+        "evidence": findings[:8]
     }
 
 
 def main():
     now = datetime.now(timezone.utc)
+
     cutoff = (
-        now - timedelta(days=LOOKBACK_DAYS)
+        now - timedelta(days=LOOKBACK)
     ).date().isoformat()
 
-    companies = load_companies()
-    cik_map = load_sec_tickers()
+    universe = companies()
+    mapping = sec_map()
 
     results = []
     errors = []
-    missing = []
 
-    for index, company in enumerate(companies, start=1):
-        ticker = company["ticker"]
-        cik = cik_map.get(ticker)
+    for i, company in enumerate(universe, 1):
+        cik = mapping.get(company["ticker"])
 
         if not cik:
-            missing.append(ticker)
+            errors.append({
+                "ticker": company["ticker"],
+                "error": "No CIK match"
+            })
             continue
 
         try:
-            result = analyze_company(
-                company, cik, cutoff
+            result = investigate(
+                company,
+                cik,
+                cutoff
             )
+
             results.append(result)
+
             print(
-                f"{index}/{len(companies)} "
-                f"{ticker}: score {result['risk_score']}",
-                flush=True
-            )
-        except Exception as exc:
-            errors.append({
-                "ticker": ticker,
-                "error": str(exc)
-            })
-            print(
-                f"Error scanning {ticker}: {exc}",
+                f'{i}/{len(universe)} '
+                f'{company["ticker"]} scored',
                 flush=True
             )
 
-        time.sleep(REQUEST_DELAY)
+        except Exception as exc:
+            errors.append({
+                "ticker": company["ticker"],
+                "error": str(exc)
+            })
+
+        time.sleep(0.14)
+
+    if len(results) < 450:
+        raise RuntimeError(
+            f"Only {len(results)} companies scanned; "
+            "retaining previous report."
+        )
 
     results.sort(
         key=lambda x: (
@@ -330,44 +352,39 @@ def main():
         if company["risk_score"] > 0
     ][:10]
 
-    # Never publish a partial or mostly failed scan
-    # as a successful daily report.
-    if len(results) < 450:
-        raise RuntimeError(
-            f"Incomplete scan: only {len(results)} "
-            "companies analyzed. Previous report retained."
-        )
-
     report = {
         "updated_at": now.isoformat(),
-        "report_type": "SEC filing investigative screening",
+        "report_type": "SEC investigative screening v3",
         "status": "screening_only",
-        "methodology": (
-            "Heuristic ranking based on selected recent "
-            "SEC filing metadata. Filing signals are not "
-            "proof of misconduct or predicted price declines."
-        ),
         "companies_scanned": len(results),
-        "unmatched_tickers": missing,
         "scan_errors": errors,
         "forecast_status": "not_calibrated",
+        "methodology": (
+            "Heuristic review priorities based on SEC "
+            "filing items and unverified text signals; "
+            "not allegations or price forecasts."
+        ),
         "companies": top10
     }
 
-    # Write only after scan completeness is verified.
-    temporary = "report.json.tmp"
+    with open(
+        "report.json.tmp",
+        "w",
+        encoding="utf-8"
+    ) as file:
+        json.dump(report, file, indent=2)
 
-    with open(temporary, "w", encoding="utf-8") as f:
-        json.dump(report, f, indent=2)
-
-    os.replace(temporary, "report.json")
+    os.replace(
+        "report.json.tmp",
+        "report.json"
+    )
 
     print(
-        f"Completed. Scanned {len(results)} companies; "
-        f"published {len(top10)} review candidates."
+        "Report written with",
+        len(top10),
+        "investigative candidates."
     )
 
 
 if __name__ == "__main__":
     main()
-
