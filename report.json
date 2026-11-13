@@ -1,0 +1,1102 @@
+{
+  "updated_at": "2026-11-13T14:31:57.423514+00:00",
+  "report_type": "SEC filing investigative screening",
+  "status": "screening_only",
+  "methodology": "Heuristic ranking based on selected recent SEC filing metadata. Filing signals are not proof of misconduct or predicted price declines.",
+  "companies_scanned": 500,
+  "unmatched_tickers": [],
+  "scan_errors": [],
+  "forecast_status": "not_calibrated",
+  "companies": [
+    {
+      "ticker": "BNY",
+      "company": "BNY Mellon",
+      "cik": 1390777,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-10-16",
+          "form": "8-K/A",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000106/bk-20260811.htm"
+        },
+        {
+          "date": "2026-08-13",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526349341/d342446d8k.htm"
+        },
+        {
+          "date": "2026-10-28",
+          "form": "8-K",
+          "items": "3.03,5.03,8.01,9.01",
+          "description": "Changes to charter or bylaws; Other events",
+          "score": 10,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526436302/d17537d8k.htm"
+        },
+        {
+          "date": "2026-07-23",
+          "form": "8-K",
+          "items": "3.03,5.03,8.01,9.01",
+          "description": "Changes to charter or bylaws; Other events",
+          "score": 10,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526314242/d126055d8k.htm"
+        },
+        {
+          "date": "2026-10-15",
+          "form": "8-K",
+          "items": "2.02,7.01,9.01",
+          "description": "Results of operations disclosure; Regulation FD disclosure",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000104/bk-20261015.htm"
+        },
+        {
+          "date": "2026-07-15",
+          "form": "8-K",
+          "items": "2.02,7.01,9.01",
+          "description": "Results of operations disclosure; Regulation FD disclosure",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000071/bk-20260715.htm"
+        },
+        {
+          "date": "2026-09-22",
+          "form": "8-K",
+          "items": "5.03,9.01",
+          "description": "Changes to charter or bylaws",
+          "score": 6,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000097/bk-20260922.htm"
+        },
+        {
+          "date": "2026-06-23",
+          "form": "8-K",
+          "items": "5.03,9.01",
+          "description": "Changes to charter or bylaws",
+          "score": 6,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526279476/d227844d8k.htm"
+        },
+        {
+          "date": "2026-08-20",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526358252/d417322d8k.htm"
+        },
+        {
+          "date": "2026-08-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526347061/d175057d8k.htm"
+        },
+        {
+          "date": "2026-06-24",
+          "form": "8-K",
+          "items": "8.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526281160/d137058d8k.htm"
+        },
+        {
+          "date": "2026-06-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1390777/000119312526269610/d119098d8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "CHTR",
+      "company": "Charter Communications",
+      "cik": 1091667,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Material definitive agreement; Changes to charter or bylaws; Regulation FD disclosure. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-08-20",
+          "form": "8-K",
+          "items": "1.01,2.01,3.02,3.03,5.02,5.03,7.01,9.01",
+          "description": "Director or senior executive change; Material definitive agreement; Changes to charter or bylaws; Regulation FD disclosure",
+          "score": 35,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000114036126033909/ef20080687_8k.htm"
+        },
+        {
+          "date": "2026-10-27",
+          "form": "8-K",
+          "items": "5.02,7.01,9.01",
+          "description": "Director or senior executive change; Regulation FD disclosure",
+          "score": 21,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000064/chtr-20261026.htm"
+        },
+        {
+          "date": "2026-08-31",
+          "form": "8-K",
+          "items": "5.02,7.01,9.01",
+          "description": "Director or senior executive change; Regulation FD disclosure",
+          "score": 21,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000114036126035084/ef20081340_8k.htm"
+        },
+        {
+          "date": "2026-10-13",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000114036126039336/ef20083641_8k.htm"
+        },
+        {
+          "date": "2026-05-19",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000032/chtr-20260515.htm"
+        },
+        {
+          "date": "2026-08-18",
+          "form": "8-K",
+          "items": "1.01,2.03,7.01,9.01",
+          "description": "Material definitive agreement; Regulation FD disclosure",
+          "score": 11,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000110465926098363/tm2623401d1_8k.htm"
+        },
+        {
+          "date": "2026-08-26",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000110465926100972/tm2623711d1_8k.htm"
+        },
+        {
+          "date": "2026-08-24",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000110465926100328/tm2623853d1_8k.htm"
+        },
+        {
+          "date": "2026-08-12",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000110465926094863/tm2622892d1_8k.htm"
+        },
+        {
+          "date": "2026-07-23",
+          "form": "8-K",
+          "items": "7.01,8.01,9.01",
+          "description": "Regulation FD disclosure; Other events",
+          "score": 7,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000110465926086302/tm2621145d1_8k.htm"
+        },
+        {
+          "date": "2026-11-06",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000072/chtr-20261106.htm"
+        },
+        {
+          "date": "2026-07-24",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000051/chtr-20260724.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "FDX",
+      "company": "FedEx",
+      "cik": 1048911,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Material definitive agreement; Other events. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-06-01",
+          "form": "8-K",
+          "items": "1.01,2.01,5.02,8.01,9.01",
+          "description": "Director or senior executive change; Material definitive agreement; Other events",
+          "score": 30,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926068519/tm2616055d1_8k.htm"
+        },
+        {
+          "date": "2026-11-09",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926124508/tm2629226d1_8k.htm"
+        },
+        {
+          "date": "2026-10-26",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926118604/tm2628225d1_8k.htm"
+        },
+        {
+          "date": "2026-07-24",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926086643/tm2621019d1_8k.htm"
+        },
+        {
+          "date": "2026-06-08",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926071411/tm2617052d1_8k.htm"
+        },
+        {
+          "date": "2026-05-18",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926063198/tm2614834d1_8k.htm"
+        },
+        {
+          "date": "2026-10-28",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000128/fdx-20261028.htm"
+        },
+        {
+          "date": "2026-10-28",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000126/fdx-20261028.htm"
+        },
+        {
+          "date": "2026-07-21",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000108/fdx-20260721.htm"
+        },
+        {
+          "date": "2026-06-23",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000050/fdx-20260623.htm"
+        },
+        {
+          "date": "2026-09-29",
+          "form": "8-K",
+          "items": "5.07,8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926111970/tm2626524d1_8k.htm"
+        },
+        {
+          "date": "2026-09-14",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926107511/tm2625313d1_8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "FLEX",
+      "company": "Flex Ltd.",
+      "cik": 866374,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Other events. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-09-15",
+          "form": "8-K",
+          "items": "5.02,8.01,9.01",
+          "description": "Director or senior executive change; Other events",
+          "score": 22,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000036/flex-20260911.htm"
+        },
+        {
+          "date": "2026-06-12",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000016/flex-20260611.htm"
+        },
+        {
+          "date": "2026-10-14",
+          "form": "8-K",
+          "items": "1.01,2.01,2.03,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000119312526421058/d147467d8k.htm"
+        },
+        {
+          "date": "2026-10-05",
+          "form": "8-K",
+          "items": "1.01,2.03,3.02,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000119312526413173/d123485d8k.htm"
+        },
+        {
+          "date": "2026-09-04",
+          "form": "8-K",
+          "items": "1.01,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000119312526382492/d108491d8k.htm"
+        },
+        {
+          "date": "2026-10-02",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000110465926113282/tm2626870d1_8k.htm"
+        },
+        {
+          "date": "2026-06-02",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000110465926069463/tm2615696d1_8k.htm"
+        },
+        {
+          "date": "2026-10-28",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000039/flex-20261028.htm"
+        },
+        {
+          "date": "2026-07-29",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000026/flex-20260729.htm"
+        },
+        {
+          "date": "2026-08-07",
+          "form": "8-K",
+          "items": "5.07,8.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000033/flex-20260805.htm"
+        },
+        {
+          "date": "2026-07-29",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000027/flex-20260729.htm"
+        },
+        {
+          "date": "2026-11-10",
+          "form": "8-K",
+          "items": "7.01,9.01",
+          "description": "Regulation FD disclosure",
+          "score": 3,
+          "url": "https://www.sec.gov/Archives/edgar/data/866374/000119312526454502/d150156d8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MLM",
+      "company": "Martin Marietta Materials",
+      "cik": 916076,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Material definitive agreement; Regulation FD disclosure. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-08-24",
+          "form": "8-K",
+          "items": "1.01,2.01,3.02,5.02,7.01,9.01",
+          "description": "Director or senior executive change; Material definitive agreement; Regulation FD disclosure",
+          "score": 29,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000946/form8-k.htm"
+        },
+        {
+          "date": "2026-08-18",
+          "form": "8-K",
+          "items": "1.01,1.02,2.03,9.01",
+          "description": "Material definitive agreement; Termination of material agreement",
+          "score": 20,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000922/form8-k.htm"
+        },
+        {
+          "date": "2026-08-04",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000837/form8-k.htm"
+        },
+        {
+          "date": "2026-08-14",
+          "form": "8-K",
+          "items": "1.01,2.03,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526352270/d103352d8k.htm"
+        },
+        {
+          "date": "2026-06-29",
+          "form": "8-K",
+          "items": "1.01,3.02,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000770/form8-k.htm"
+        },
+        {
+          "date": "2026-08-12",
+          "form": "8-K",
+          "items": "1.01,7.01,9.01",
+          "description": "Material definitive agreement; Regulation FD disclosure",
+          "score": 11,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526346914/d149482d8k.htm"
+        },
+        {
+          "date": "2026-11-04",
+          "form": "8-K",
+          "items": "2.02,7.01,9.01",
+          "description": "Results of operations disclosure; Regulation FD disclosure",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526446178/mlm-20261104.htm"
+        },
+        {
+          "date": "2026-09-16",
+          "form": "8-K",
+          "items": "1.01,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726001024/form8-k.htm"
+        },
+        {
+          "date": "2026-07-30",
+          "form": "8-K",
+          "items": "2.02,7.01,9.01",
+          "description": "Results of operations disclosure; Regulation FD disclosure",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526324863/mlm-20260730.htm"
+        },
+        {
+          "date": "2026-07-15",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000802/form8-k.htm"
+        },
+        {
+          "date": "2026-08-10",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526341412/d129878d8k.htm"
+        },
+        {
+          "date": "2026-08-05",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/916076/000095015726000850/form8-k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "NWSA",
+      "company": "News Corp (Class A)",
+      "cik": 1564708,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Changes in certifying accountant. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-06-12",
+          "form": "8-K",
+          "items": "4.01,9.01",
+          "description": "Changes in certifying accountant",
+          "score": 25,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000131/nws-20260612.htm"
+        },
+        {
+          "date": "2026-11-04",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000248/nws-20261104.htm"
+        },
+        {
+          "date": "2026-08-05",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000171/nws-20260805.htm"
+        },
+        {
+          "date": "2026-11-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000260/nws-20261111.htm"
+        },
+        {
+          "date": "2026-11-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000259/nws-20261110.htm"
+        },
+        {
+          "date": "2026-11-10",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000257/nws-20261109.htm"
+        },
+        {
+          "date": "2026-11-09",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000256/nws-20261106.htm"
+        },
+        {
+          "date": "2026-11-06",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000255/nws-20261105.htm"
+        },
+        {
+          "date": "2026-11-05",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000249/nws-20261104.htm"
+        },
+        {
+          "date": "2026-11-04",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000243/nws-20261103.htm"
+        },
+        {
+          "date": "2026-11-03",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000242/nws-20261102.htm"
+        },
+        {
+          "date": "2026-11-02",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000241/nws-20261030.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "NWS",
+      "company": "News Corp (Class B)",
+      "cik": 1564708,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Changes in certifying accountant. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-06-12",
+          "form": "8-K",
+          "items": "4.01,9.01",
+          "description": "Changes in certifying accountant",
+          "score": 25,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000131/nws-20260612.htm"
+        },
+        {
+          "date": "2026-11-04",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000248/nws-20261104.htm"
+        },
+        {
+          "date": "2026-08-05",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000171/nws-20260805.htm"
+        },
+        {
+          "date": "2026-11-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000260/nws-20261111.htm"
+        },
+        {
+          "date": "2026-11-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000259/nws-20261110.htm"
+        },
+        {
+          "date": "2026-11-10",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000257/nws-20261109.htm"
+        },
+        {
+          "date": "2026-11-09",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000256/nws-20261106.htm"
+        },
+        {
+          "date": "2026-11-06",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000255/nws-20261105.htm"
+        },
+        {
+          "date": "2026-11-05",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000249/nws-20261104.htm"
+        },
+        {
+          "date": "2026-11-04",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000243/nws-20261103.htm"
+        },
+        {
+          "date": "2026-11-03",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000242/nws-20261102.htm"
+        },
+        {
+          "date": "2026-11-02",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000156470826000241/nws-20261030.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "PSA",
+      "company": "Public Storage",
+      "cik": 1393311,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Material definitive agreement; Termination of material agreement; Regulation FD disclosure. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-06-25",
+          "form": "8-K",
+          "items": "1.01,1.02,2.03,7.01,9.01",
+          "description": "Material definitive agreement; Termination of material agreement; Regulation FD disclosure",
+          "score": 23,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526282750/d157069d8k.htm"
+        },
+        {
+          "date": "2026-11-12",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526456624/d158518d8k.htm"
+        },
+        {
+          "date": "2026-08-10",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526342525/d131031d8k.htm"
+        },
+        {
+          "date": "2026-07-07",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526297556/d156543d8k.htm"
+        },
+        {
+          "date": "2026-07-22",
+          "form": "8-K",
+          "items": "1.01,2.01,2.03,3.02,3.03,5.03,7.01,9.01",
+          "description": "Material definitive agreement; Changes to charter or bylaws; Regulation FD disclosure",
+          "score": 17,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526312563/d137665d8k.htm"
+        },
+        {
+          "date": "2026-11-06",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526451826/d191331d8k.htm"
+        },
+        {
+          "date": "2026-10-30",
+          "form": "8-K",
+          "items": "1.01,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526441763/d90432d8k.htm"
+        },
+        {
+          "date": "2026-09-16",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526393149/d130476d8k.htm"
+        },
+        {
+          "date": "2026-09-10",
+          "form": "8-K",
+          "items": "1.01,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526387986/d117471d8k.htm"
+        },
+        {
+          "date": "2026-07-20",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526308951/d71179d8k.htm"
+        },
+        {
+          "date": "2026-07-13",
+          "form": "8-K",
+          "items": "1.01,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526301175/d25240d8k.htm"
+        },
+        {
+          "date": "2026-09-01",
+          "form": "8-K",
+          "items": "7.01,8.01,9.01",
+          "description": "Regulation FD disclosure; Other events",
+          "score": 7,
+          "url": "https://www.sec.gov/Archives/edgar/data/1393311/000119312526377690/d71712d8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "SKYD",
+      "company": "Skydance",
+      "cik": 2041610,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Material definitive agreement; Termination of material agreement; Changes to charter or bylaws; Regulation FD disclosure. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-10-06",
+          "form": "8-K",
+          "items": "1.01,1.02,2.01,2.03,3.02,5.02,5.03,5.07,7.01,9.01",
+          "description": "Director or senior executive change; Material definitive agreement; Termination of material agreement; Changes to charter or bylaws; Regulation FD disclosure",
+          "score": 47,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926113913/tm2626659d7_8k.htm"
+        },
+        {
+          "date": "2026-09-25",
+          "form": "8-K",
+          "items": "3.01,7.01,9.01",
+          "description": "Listing or continued listing notice; Regulation FD disclosure",
+          "score": 38,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926111034/tm2610616d11_8k.htm"
+        },
+        {
+          "date": "2026-10-01",
+          "form": "8-K",
+          "items": "5.02,7.01,8.01,9.01",
+          "description": "Director or senior executive change; Regulation FD disclosure; Other events",
+          "score": 25,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926112829/tm2626659d2_8k.htm"
+        },
+        {
+          "date": "2026-10-06",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926114113/tm2626659d9_8k.htm"
+        },
+        {
+          "date": "2026-10-13",
+          "form": "8-K",
+          "items": "1.01,2.03,7.01,8.01,9.01",
+          "description": "Material definitive agreement; Regulation FD disclosure; Other events",
+          "score": 15,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926115294/tm2626659d12_8k.htm"
+        },
+        {
+          "date": "2026-11-09",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000062/skyd-20261109.htm"
+        },
+        {
+          "date": "2026-08-04",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/psky-20260804.htm"
+        },
+        {
+          "date": "2026-09-30",
+          "form": "8-K",
+          "items": "8.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926112347/tm2626659d1_8k.htm"
+        },
+        {
+          "date": "2026-08-04",
+          "form": "8-K/A",
+          "items": "8.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926090460/tm2610616d9_8ka.htm"
+        },
+        {
+          "date": "2026-06-29",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000041/psky-20260629.htm"
+        },
+        {
+          "date": "2026-10-02",
+          "form": "8-K",
+          "items": "7.01",
+          "description": "Regulation FD disclosure",
+          "score": 3,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926113076/tm2626659d3_8k.htm"
+        },
+        {
+          "date": "2026-09-28",
+          "form": "8-K",
+          "items": "7.01,9.01",
+          "description": "Regulation FD disclosure",
+          "score": 3,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926111174/tm2610616d13_8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "SWKS",
+      "company": "Skyworks Solutions",
+      "cik": 4127,
+      "risk_level": "High review priority",
+      "risk_score": 100,
+      "summary": "SEC filing screening identified: Director or senior executive change; Other events. Review the filing before drawing conclusions.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-10-05",
+          "form": "8-K",
+          "items": "2.01,5.02,8.01,9.01",
+          "description": "Director or senior executive change; Other events",
+          "score": 22,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926113538/tm2626934d1_8k.htm"
+        },
+        {
+          "date": "2026-05-19",
+          "form": "8-K",
+          "items": "5.02,5.07,9.01",
+          "description": "Director or senior executive change",
+          "score": 18,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000031/swks-20260513.htm"
+        },
+        {
+          "date": "2026-08-10",
+          "form": "8-K",
+          "items": "1.01,2.03,8.01,9.01",
+          "description": "Material definitive agreement; Other events",
+          "score": 12,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926093355/tm2622643d1_8k.htm"
+        },
+        {
+          "date": "2026-07-28",
+          "form": "8-K",
+          "items": "2.02,8.01,9.01",
+          "description": "Results of operations disclosure; Other events",
+          "score": 9,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000047/swks-20260727.htm"
+        },
+        {
+          "date": "2026-10-07",
+          "form": "8-K",
+          "items": "1.01,2.03,9.01",
+          "description": "Material definitive agreement",
+          "score": 8,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926114359/tm2626934d2_8k.htm"
+        },
+        {
+          "date": "2026-11-03",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "description": "Results of operations disclosure",
+          "score": 5,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000052/swks-20261103.htm"
+        },
+        {
+          "date": "2026-09-30",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926112129/tm2626657d1_8k.htm"
+        },
+        {
+          "date": "2026-09-02",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926104395/tm2624606d1_8k.htm"
+        },
+        {
+          "date": "2026-08-03",
+          "form": "8-K",
+          "items": "8.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926089397/tm2621905d1_8k.htm"
+        },
+        {
+          "date": "2026-08-03",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926089381/tm2620808d3_8k.htm"
+        },
+        {
+          "date": "2026-07-28",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000000412726000045/swks-20260728.htm"
+        },
+        {
+          "date": "2026-06-12",
+          "form": "8-K",
+          "items": "8.01,9.01",
+          "description": "Other events",
+          "score": 4,
+          "url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926073096/tm2613769d1_8k.htm"
+        }
+      ]
+    }
+  ]
+}
