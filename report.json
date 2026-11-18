@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T20:58:38.444778+00:00",
+  "updated_at": "2026-11-18T20:36:42.185249+00:00",
   "report_type": "SEC investigative screening v3",
   "status": "screening_only",
   "companies_scanned": 503,
@@ -183,6 +183,28 @@
       ]
     },
     {
+      "ticker": "TXT",
+      "company": "Textron",
+      "cik": 217346,
+      "risk_level": "Elevated review priority",
+      "risk_score": 30,
+      "summary": "Review disclosed material impairment. This is not evidence of wrongdoing.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-11-18",
+          "form": "8-K",
+          "items": "1.01,2.06,7.01,8.01,9.01",
+          "description": "Material impairment",
+          "text_signals": [],
+          "score": 30,
+          "url": "https://www.sec.gov/Archives/edgar/data/217346/000110465926129345/tm2629751d1_8k.htm"
+        }
+      ]
+    },
+    {
       "ticker": "AES",
       "company": "AES Corporation",
       "cik": 874761,
@@ -294,37 +316,6 @@
           "text_signals": [],
           "score": 10,
           "url": "https://www.sec.gov/Archives/edgar/data/55785/000110465926112571/tm2626685d1_8k.htm"
-        }
-      ]
-    },
-    {
-      "ticker": "MKC",
-      "company": "McCormick & Company",
-      "cik": 63754,
-      "risk_level": "Routine review",
-      "risk_score": 25,
-      "summary": "Review disclosed change in certifying accountant. This is not evidence of wrongdoing.",
-      "event_30d": null,
-      "drop_30d": null,
-      "drop_90d": null,
-      "evidence": [
-        {
-          "date": "2026-09-28",
-          "form": "8-K",
-          "items": "4.01,9.01",
-          "description": "Change in certifying accountant",
-          "text_signals": [],
-          "score": 24,
-          "url": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000322/mkc-20260924.htm"
-        },
-        {
-          "date": "2026-08-28",
-          "form": "8-K",
-          "items": "5.02",
-          "description": "Director or executive change",
-          "text_signals": [],
-          "score": 10,
-          "url": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000305/mkc-20260825.htm"
         }
       ]
     }
