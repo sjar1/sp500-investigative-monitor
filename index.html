@@ -77,6 +77,7 @@ a { color:var(--blue); }
   font-size:12px;
 }
 .small { color:var(--muted); font-size:13px; line-height:1.5; }
+.evidence-list{margin-top:14px}.evidence-list summary{cursor:pointer;color:var(--blue);padding:12px 0;font-weight:bold}.evidence-item{border-top:1px solid var(--border);padding:12px 0;line-height:1.5}
 .empty {
   padding:28px;
   text-align:center;
@@ -223,6 +224,26 @@ function escapeHTML(value) {
   }[c]));
 }
 
+
+const EVENT_EXPLANATIONS={"Financial statements should no longer be relied upon":"Earlier financial statements may require correction; review the scale and cause.","Change in certifying accountant":"An auditor change can be routine, but timing and disagreements merit review.","Material impairment":"An asset write-down may materially affect earnings or signal changed expectations.","Restructuring or exit costs":"Restructuring charges may signal operational or strategic changes.","Exchange listing compliance notice":"Item 3.01 covers listing-related notices and transfers; read the filing before assuming noncompliance.","Termination of a material agreement":"A terminated key contract can affect operations, financing or revenue.","Director or executive change":"Leadership changes can be routine; context and disclosed disagreements matter.","Late periodic filing notice":"A delayed report can reflect reporting complexity, controls or administrative issues.","Internal control material weakness":"A reporting-control weakness can increase the risk of undetected errors.","Going-concern uncertainty":"Substantial doubt about continued operations may indicate liquidity concerns.","Restatement reference":"A restatement mention warrants context checking; it may not refer to the company's own accounts.","Government investigation reference":"A keyword mention is not proof of an investigation or wrongdoing.","Export-control reference":"Export-control language may describe regulatory exposure or routine compliance.","Sanctions reference":"Sanctions language may be general risk disclosure, not a violation.","Related-party transaction reference":"Affiliate transactions deserve scrutiny for governance and conflicts.","Disagreement reference":"The filing must be checked to identify the parties and significance.","Resignation reference":"The reasons and timing of departures determine their relevance."};
+function evidenceHTML(c){
+ const events=Array.isArray(c.evidence)?c.evidence:[];
+ let html='<details class="evidence-list"><summary>History &amp; Evidence ('+events.length+')</summary>';
+ html+='<p class="small">SEC filing signals are research leads, not established wrongdoing. Explanations describe event categories, not verified company-specific circumstances.</p>';
+ if(!events.length)html+='<p class="small">No qualifying SEC events in this report.</p>';
+ for(const e of events){
+  const labels=[...(e.description||'').split(';').map(x=>x.trim()),...(e.text_signals||[])].filter(Boolean);
+  const why=[...new Set(labels)].map(x=>EVENT_EXPLANATIONS[x]||'Review the original filing for context.').join(' ');
+  html+='<div class="evidence-item"><p class="small">'+escapeHTML(e.date||'Unknown date')+' · '+escapeHTML(e.form||'SEC filing')+' · Items '+escapeHTML(e.items||'N/A')+'</p>';
+  html+='<p><strong>Significant event:</strong> '+escapeHTML(e.description||'Monitored filing event')+'</p>';
+  html+='<p><strong>Why it matters:</strong> '+escapeHTML(why)+'</p>';
+  html+='<p class="small">Screening score: '+escapeHTML(e.score??'N/A')+' (not a probability)</p>';
+  if(typeof e.url==='string'&&e.url.startsWith('https://www.sec.gov/Archives/'))html+='<a target="_blank" rel="noopener noreferrer" href="'+escapeHTML(e.url)+'">Original SEC evidence</a>';
+  html+='</div>';
+ }
+ return html+'</details>';
+}
+
 function renderCompanies() {
   const query = document.getElementById("search")
     .value.toLowerCase();
@@ -264,6 +285,7 @@ function renderCompanies() {
         90-Day Decline:
         ${escapeHTML(c.drop_90d ?? "Pending")}
       </div>
+      ${evidenceHTML(c)}
     </div>
   `).join("");
 }
