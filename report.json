@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T20:41:33.211545+00:00",
+  "updated_at": "2026-11-20T20:26:16.105726+00:00",
   "report_type": "SEC investigative screening v3",
   "status": "screening_only",
   "companies_scanned": 503,
@@ -238,6 +238,39 @@
       ]
     },
     {
+      "ticker": "RMD",
+      "company": "ResMed",
+      "cik": 943819,
+      "risk_level": "Routine review",
+      "risk_score": 28,
+      "summary": "Review disclosed change in certifying accountant; director or executive change. This is not evidence of wrongdoing.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-08-17",
+          "form": "8-K",
+          "items": "4.01,5.02,7.01,9.01",
+          "description": "Change in certifying accountant; Director or executive change",
+          "text_signals": [
+            "Disagreement reference"
+          ],
+          "score": 27,
+          "url": "https://www.sec.gov/Archives/edgar/data/943819/000119312526354154/d292919d8k.htm"
+        },
+        {
+          "date": "2026-11-19",
+          "form": "8-K",
+          "items": "5.02,5.07,9.01",
+          "description": "Director or executive change",
+          "text_signals": [],
+          "score": 10,
+          "url": "https://www.sec.gov/Archives/edgar/data/943819/000119312526468603/d44582d8k.htm"
+        }
+      ]
+    },
+    {
       "ticker": "AMCR",
       "company": "Amcor",
       "cik": 1748790,
@@ -258,30 +291,6 @@
           ],
           "score": 27,
           "url": "https://www.sec.gov/Archives/edgar/data/1748790/000110465926096303/tm2622721d1_8k.htm"
-        }
-      ]
-    },
-    {
-      "ticker": "RMD",
-      "company": "ResMed",
-      "cik": 943819,
-      "risk_level": "Routine review",
-      "risk_score": 27,
-      "summary": "Review disclosed change in certifying accountant; director or executive change. This is not evidence of wrongdoing.",
-      "event_30d": null,
-      "drop_30d": null,
-      "drop_90d": null,
-      "evidence": [
-        {
-          "date": "2026-08-17",
-          "form": "8-K",
-          "items": "4.01,5.02,7.01,9.01",
-          "description": "Change in certifying accountant; Director or executive change",
-          "text_signals": [
-            "Disagreement reference"
-          ],
-          "score": 27,
-          "url": "https://www.sec.gov/Archives/edgar/data/943819/000119312526354154/d292919d8k.htm"
         }
       ]
     },
