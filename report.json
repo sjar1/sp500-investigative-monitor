@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T22:30:07.632951+00:00",
+  "updated_at": "2026-11-25T21:45:01.843442+00:00",
   "report_type": "SEC investigative screening v3",
   "status": "screening_only",
   "companies_scanned": 503,
@@ -205,39 +205,6 @@
       ]
     },
     {
-      "ticker": "AES",
-      "company": "AES Corporation",
-      "cik": 874761,
-      "risk_level": "Routine review",
-      "risk_score": 28,
-      "summary": "Review disclosed change in certifying accountant. This is not evidence of wrongdoing.",
-      "event_30d": null,
-      "drop_30d": null,
-      "drop_90d": null,
-      "evidence": [
-        {
-          "date": "2026-07-27",
-          "form": "8-K",
-          "items": "4.01,9.01",
-          "description": "Change in certifying accountant",
-          "text_signals": [
-            "Internal control material weakness"
-          ],
-          "score": 27,
-          "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000138/aes-20260721.htm"
-        },
-        {
-          "date": "2026-09-16",
-          "form": "8-K",
-          "items": "5.02",
-          "description": "Director or executive change",
-          "text_signals": [],
-          "score": 10,
-          "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000153/aes-20260914.htm"
-        }
-      ]
-    },
-    {
       "ticker": "RMD",
       "company": "ResMed",
       "cik": 943819,
@@ -325,6 +292,37 @@
           "text_signals": [],
           "score": 10,
           "url": "https://www.sec.gov/Archives/edgar/data/55785/000110465926112571/tm2626685d1_8k.htm"
+        }
+      ]
+    },
+    {
+      "ticker": "MKC",
+      "company": "McCormick & Company",
+      "cik": 63754,
+      "risk_level": "Routine review",
+      "risk_score": 25,
+      "summary": "Review disclosed change in certifying accountant. This is not evidence of wrongdoing.",
+      "event_30d": null,
+      "drop_30d": null,
+      "drop_90d": null,
+      "evidence": [
+        {
+          "date": "2026-09-28",
+          "form": "8-K",
+          "items": "4.01,9.01",
+          "description": "Change in certifying accountant",
+          "text_signals": [],
+          "score": 24,
+          "url": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000322/mkc-20260924.htm"
+        },
+        {
+          "date": "2026-08-28",
+          "form": "8-K",
+          "items": "5.02",
+          "description": "Director or executive change",
+          "text_signals": [],
+          "score": 10,
+          "url": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000305/mkc-20260825.htm"
         }
       ]
     }
