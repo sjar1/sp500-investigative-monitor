@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T21:38:00.486818+00:00",
+  "updated_at": "2026-11-27T21:21:41.829607+00:00",
   "report_type": "SEC investigative screening v3",
   "status": "screening_only",
   "companies_scanned": 503,
@@ -12,7 +12,7 @@
       "company": "Skydance",
       "cik": 2041610,
       "risk_level": "Elevated review priority",
-      "risk_score": 49,
+      "risk_score": 50,
       "summary": "Review disclosed exchange listing compliance notice. This is not evidence of wrongdoing.",
       "event_30d": null,
       "drop_30d": null,
@@ -26,6 +26,15 @@
           "text_signals": [],
           "score": 45,
           "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926111034/tm2610616d11_8k.htm"
+        },
+        {
+          "date": "2026-11-27",
+          "form": "8-K",
+          "items": "1.02,8.01,9.01",
+          "description": "Termination of a material agreement",
+          "text_signals": [],
+          "score": 16,
+          "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926132332/tm2626659d16_8k.htm"
         },
         {
           "date": "2026-10-06",
